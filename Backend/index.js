@@ -1,10 +1,19 @@
 const express =require("express");
-const getAllNodesRoute = require("./routes/getAllNodes");
+
 const getNodesRoute = require("./routes/getNodes");
+const cors  = require("cors")
 const app=express();
 
+app.use(express.json()); // ✅ Middleware to parse JSON bodies
+app.use(express.urlencoded({ extended: true })); 
+app.use(cors());
 
-app.use("/getAllNodes",getAllNodesRoute);
+// app.use("/getAllNodes",getAllNodesRoute);
+app.get("/",(req,res)=>{
+    res.json({
+        message:"Hiiiiiiiiiiiiiiiiiiiiiii"
+    })
+})
 app.use("/getNodes",getNodesRoute)
 
 app.listen(3000,()=>{
