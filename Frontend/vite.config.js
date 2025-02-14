@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   server: {
+    fs: {
+      allow: ['../'], // Allow access to parent directory
+    },
     host: '0.0.0.0',  // Allows access from any IP
     port: 5173,        // Change to your desired port
   },
